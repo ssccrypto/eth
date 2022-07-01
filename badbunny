@@ -72,7 +72,7 @@ library SafeMath {
     }
 }
 
-interface IBEP20 {
+interface IERC20 {
     function totalSupply() external view returns (uint256);
     function balanceOf(address who) external view returns (uint256);
     function allowance(address owner, address spender) external view returns (uint256);
@@ -177,7 +177,7 @@ abstract contract Auth {
     function transferOwnership(address payable adr) public authorized {owner = adr; authorizations[adr] = true;}
 }
 
-abstract contract BEP20Detailed is IBEP20 {
+abstract contract ERC20Detailed is IERC20 {
     string private _name;
     string private _symbol;
     uint8 private _decimals;
